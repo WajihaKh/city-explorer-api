@@ -24,6 +24,18 @@ class Forecast {
   }
 }
 
+class Movie {
+  constructor(movieData) {
+    this.title = movieData.title;
+    this.overview = movieData.overview;
+    this.average_votes = movieData.vote_average;
+    this.total_votes = movieData.vote_count;
+    this.image_url = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
+    this.popularity = movieData.popularity;
+    this.released_on = movieData.release_date;
+  }
+}
+
 app.get('/weather', async (request, response) => {
   try {
     const { lat, lon } = request.query;
@@ -47,6 +59,33 @@ app.get('/weather', async (request, response) => {
 
   } catch (error) {
     response.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/movies', async (request, response) => {
+  try {
+
+    const{ city } = request.query;
+
+    if (!city) {
+      return response
+        .status(400)
+        .json({ error: 'City is a required parameter' });
+    }
+
+    const movieApiKey = process.env.MOVIE_API_KEY;
+
+    const apiUrl = `http://api.themoviebd.org/3/movie/popular?api_key=${movieApiKey}&query=${city}`;
+
+    const apiResponse = await axios.get(apiUrl);
+
+    const movieArray = apiResponse.data.results.map(movieData => new Movie(movieData));
+    console.log('movieArray', movieArray);
+
+    response.status(200).json(movieArray);
+
+  } catch (error) {
+    response.status(500).json({ error: 'Internal server error'});
   }
 });
 

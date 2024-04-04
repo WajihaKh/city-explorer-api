@@ -33,6 +33,6 @@ Finish time: 10:30
 Actual time needed to complete: 5 hours
 
 Estimate of time needed to complete: 4 hours
-Start time: 6:30
+Start time: 7:00 pm --break at 9:00-- 11:35 pm
 Finish time:
 Actual time needed to complete:
