@@ -1,7 +1,7 @@
 # City Explorer Api
 
 **Author** Wajiha Khan
-**Version**: 2.0.0
+**Version**: 3.0.0
 
 ## Overview
 
@@ -31,3 +31,8 @@ Estimate of time needed to complete: 3 hours
 Start time: 5:30 pm
 Finish time: 10:30
 Actual time needed to complete: 5 hours
+
+Estimate of time needed to complete: 4 hours
+Start time: 6:30
+Finish time:
+Actual time needed to complete:
