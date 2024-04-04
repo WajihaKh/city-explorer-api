@@ -28,10 +28,6 @@ class Movie {
   constructor(movieData) {
     this.title = movieData.title;
     this.overview = movieData.overview;
-    this.average_votes = movieData.vote_average;
-    this.total_votes = movieData.vote_count;
-    this.image_url = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
-    this.popularity = movieData.popularity;
     this.released_on = movieData.release_date;
   }
 }
@@ -66,6 +62,7 @@ app.get('/movies', async (request, response) => {
   try {
 
     const{ city } = request.query;
+    console.log('city', city);
 
     if (!city) {
       return response
@@ -75,7 +72,7 @@ app.get('/movies', async (request, response) => {
 
     const movieApiKey = process.env.MOVIE_API_KEY;
 
-    const apiUrl = `http://api.themoviebd.org/3/movie/popular?api_key=${movieApiKey}&query=${city}`;
+    const apiUrl = (`https://api.themoviedb.org/3/search/movie?api_key=${movieApiKey}&language=en-US&query=${city}&page=1&include_adult=false`);
 
     const apiResponse = await axios.get(apiUrl);
 
