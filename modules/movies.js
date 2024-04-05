@@ -5,6 +5,7 @@ class Movie {
     this.title = movieData.title;
     this.overview = movieData.overview;
     this.release_date = movieData.release_date;
+    this.poster_path = movieData.poster_path;
   }
 }
 
@@ -12,7 +13,6 @@ async function getMovies(request, response) {
   try {
 
     const{ city } = request.query;
-    console.log('city', city);
 
     if (!city) {
       return response
@@ -25,9 +25,8 @@ async function getMovies(request, response) {
     const apiUrl = (`https://api.themoviedb.org/3/search/movie?api_key=${movieApiKey}&language=en-US&query=${city}&page=1&include_adult=false`);
 
     const apiResponse = await axios.get(apiUrl);
-
+    console.log('apiReponse.data ', apiResponse.data);
     const movieArray = apiResponse.data.results.map(movieData => new Movie(movieData));
-    console.log('movieArray', movieArray);
 
     response.status(200).json(movieArray);
 

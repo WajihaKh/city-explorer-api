@@ -26,7 +26,6 @@ async function getWeather(request, response) {
     const apiResponse = await axios.get(apiUrl);
 
     const forecastArray = apiResponse.data.data.map(dayData => new Forecast(dayData));
-    console.log('forecastArray ', forecastArray);
 
     response.status(200).json(forecastArray);
 
