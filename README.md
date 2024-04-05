@@ -69,3 +69,7 @@
 - Start time: 7:00 pm --break at 9:00-- 11:35 pm
 - Finish time: 12:30 am
 - Actual time needed to complete: 3 hours
+
+Estimate of time needed to complete: 2 hours
+Start time: 6:00 pm
+Finish time: 6:20 pm
