@@ -137,8 +137,6 @@
 - Finish time: 9:40 pm
 - Actual time needed to complete: An hour and 40 minutes
 
-[!IMPORTANT]
-
 In summary, the design of this project showcases fundamental principles of backend development, including modularity, API integration, caching, error handling, security best practices, and adherence to RESTful design principles. The focus on optimizing performance through caching aligns with real-world scenarios where minimizing external API calls is crucial for efficiency and scalability.
 
 ## Credits
