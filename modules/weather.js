@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const weatherCache = {};
+
 class Forecast {
   constructor(weatherData) {
     this.forecast = weatherData.weather.description;
@@ -20,6 +22,12 @@ async function getWeather(request, response) {
     }
 
     const weatherApiKey = process.env.WEATHER_API_KEY;
+    const cacheKey = `${lat},${lon}`;
+
+    if (weatherCache[cacheKey] && isCacheValid(weatherCache[cacheKey])) {
+      response.status(200).json(weatherCache[cacheKey]);
+      return;
+    }
 
     const apiUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${weatherApiKey}`;
 
@@ -27,11 +35,23 @@ async function getWeather(request, response) {
 
     const forecastArray = apiResponse.data.data.map(dayData => new Forecast(dayData));
 
+    weatherCache[cacheKey] = {
+      data: forecastArray,
+      timestamp: Date.now()
+    };
+    console.log('weatherCache ', weatherCache);
     response.status(200).json(forecastArray);
 
   } catch (error) {
     response.status(500).json({ error: 'Internal server error' });
   }
+}
+
+function isCacheValid(cacheEntry) {
+  const CACHE_DURATION = 60 * 60 * 1000;
+  const currentTime = Date.now();
+
+  return currentTime - cacheEntry.timestamp <= CACHE_DURATION;
 }
 
 module.exports = getWeather;

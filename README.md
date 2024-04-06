@@ -1,6 +1,7 @@
 # City Explorer Api
 
 **Author** Wajiha Khan
+
 **Version**: 1.0.0
 
 **Overview**:
@@ -38,7 +39,7 @@
 
 - This application combines weather forecast and movie search functionalities into one platform. Users can obtain weather forecasts based on their location and search for movies related to a specific city. It aims to provide convenience for users interested in planning activities based on weather conditions and exploring movie options for entertainment purposes.
 
-**Getting started on weather**:
+**Getting Started on Weather**:
 
 - Obtain API key from the weather API provider
 - Set up an environment variable for weather API key
@@ -46,7 +47,7 @@
 - Update the weather route to make an Axios request to the weather API with latitude and longitude
 - Shape the API results using a class and respond with an array of objects corresponding to each day's forecast
 
-**Getting started on movie**:
+**Getting Started on Movie**:
 
 - Obtain API key from the movie API provider
 - Set up an environment variable for movie API key
@@ -70,6 +71,77 @@
 - Finish time: 12:30 am
 - Actual time needed to complete: 3 hours
 
-Estimate of time needed to complete: 2 hours
-Start time: 6:00 pm
-Finish time: 6:20 pm
+**Version**: 3.0.0
+
+**Overview**:
+
+- This application focuses on providing weather and movie data through HTTP requests. It's designed to separate these functionalities into distinct modules within the server-side code. This approach enhances code organization, readability, and scalability. By modularizing these features, the server can handle requests more efficiently, improving overall performance and maintainability. The goal is to offer users a seamless experience when querying weather or movie information, enchancing the application's usability and versatility.
+
+**Getting Started on Weather**:
+
+- Implement weather module
+- Move weather-related functionality from the main entry point. Ensure that the module exports the necessary functions to handle weather-related requests.
+- Integrate weather module and configure the weather endpoint to use this function for handling weather requests.
+
+**Getting Started on Movie**:
+
+- Implement movie module
+- Move movie-related functionality from the main entry point. Ensure that the module exports the necessary functions to handle movie-related requests.
+- Integrate weather module and configure the movie endpoint to use this function for handling movie requests
+
+**Architecture**:
+
+- Language: Javascript
+- Framework: Express.js
+- Data Storage: JSON file
+- Dependencies: express, dotenv, cors, axios
+
+**Change Log**:
+
+04/05/2024 6:20 pm
+
+- Estimate of time needed to complete: 2 hours
+- Start time: 6:00 pm
+- Finish time: 6:20 pm
+- Actual time needed to complete: 20 minutes
+
+**Version**: 3.0.0
+
+**Overview**:
+
+- This application is a backend server designed to provide weather and movie data based on user requests. The primary problem domain is to efficiently retrieve and deliver weather forecasts and movie information to client applications, minimizing external API calls by implementing an in-memory caching mechanism.
+
+**Getting Started**:
+
+- Understanding starter code
+- Integrate the start code into the modules and debug any issues to ensure both modules run smoothly.
+- Implement separate objects in their respective modules and to store cached data.
+- Within each module, require the cache object to enable caching functionality.
+- Modify the functions in each modules to check for recent data before making API requests.
+- Implement a cache validation function to determine the validity of cached data based on a specified timespan.
+- Update the corresponding endpoints in the main entry point.
+
+**Architecture**:
+
+- Language: Javascript
+- Framework: Express.js
+- Data Storage: JSON file
+- Dependencies: express, dotenv, cors, axios
+
+**Change Log**:
+
+04/05/2024 9:40 pm
+
+- Estimate of time needed to complete: 2 hours
+- Start time: 8:00 pm
+- Finish time: 9:40 pm
+- Actual time needed to complete: An hour and 40 minutes
+
+[!IMPORTANT]
+
+In summary, the design of this project showcases fundamental principles of backend development, including modularity, API integration, caching, error handling, security best practices, and adherence to RESTful design principles. The focus on optimizing performance through caching aligns with real-world scenarios where minimizing external API calls is crucial for efficiency and scalability.
+
+## Credits
+
+![WEATHERBIT API](https://www.weatherbit.io/api)
+![THE MOVIE DB API](https://developer.themoviedb.org/docs/getting-started)
