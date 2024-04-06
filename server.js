@@ -23,5 +23,5 @@ app.get('/weather', getWeather);
 app.get('/movies', getMovies);
 
 app.listen(port, () =>
-  console.log(`Server is running on http://localhost:${port}`)
+  (`Server is running on http://localhost:${port}`)
 );
