@@ -143,5 +143,5 @@ In summary, the design of this project showcases fundamental principles of backe
 
 ## Credits
 
-![WEATHERBIT API](https://www.weatherbit.io/api)
-![THE MOVIE DB API](https://developer.themoviedb.org/docs/getting-started)
+[WEATHERBIT API](https://www.weatherbit.io/api)
+[THE MOVIE DB API](https://developer.themoviedb.org/docs/getting-started)
